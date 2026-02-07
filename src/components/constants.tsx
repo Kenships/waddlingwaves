@@ -1,4 +1,4 @@
-
+//comment
 import { DuckCategory } from './types';
 
 export const MBTI_OPTIONS = [

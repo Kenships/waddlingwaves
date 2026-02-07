@@ -1,4 +1,4 @@
-
+// comment
 import React from 'react';
 import type {DuckResult} from './types';
 import { CATEGORY_METADATA } from './constants';

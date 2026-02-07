@@ -1,4 +1,4 @@
-
+// comment
 export const DuckCategory = {
   TIDE_SETTERS: 'Tide Setters',
   CANADIAN_GEESE: 'Canadian Geese',

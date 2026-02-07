@@ -1,4 +1,4 @@
-
+// comment
 import { GoogleGenAI, Type } from "@google/genai";
 import {type UserAnswers, type DuckResult, DuckCategory } from "./types";
 import { CATEGORY_SUMMARIES } from "./constants";
