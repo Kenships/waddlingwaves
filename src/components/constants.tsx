@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { DuckCategory } from './types';
 
 export const MBTI_OPTIONS = [
