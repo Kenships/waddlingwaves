@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { DuckResult } from './types';
+import type {DuckResult} from './types';
 import { CATEGORY_METADATA } from './constants';
 import DuckAvatar from './DuckAvatar';
 

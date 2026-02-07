@@ -1,6 +1,6 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
-import { UserAnswers, DuckResult, DuckCategory } from "./types";
+import {type UserAnswers, type DuckResult, DuckCategory } from "./types";
 import { CATEGORY_SUMMARIES, AVATAR_ASSETS } from "./constants";
 
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
@@ -77,8 +77,13 @@ export const categorizeUser = async (answers: UserAnswers): Promise<DuckResult> 
       }
     });
 
-    const data: GeminiRawResponse = JSON.parse(response.text);
-    
+    const responseText = response.text;
+    if (!responseText) {
+      throw new Error("The duck oracle returned an empty response.");
+    }
+
+    const data: GeminiRawResponse = JSON.parse(responseText);
+
     let category: DuckCategory = DuckCategory.WADING_WADDLERS;
     const catName = data.category.toLowerCase();
     if (catName.includes("tide")) category = DuckCategory.TIDE_SETTERS;

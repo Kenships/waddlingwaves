@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { UserAnswers } from './types';
+import type {UserAnswers} from './types';
 import { MBTI_OPTIONS, MEME_OPTIONS, DUCK_ACTIVITIES, FOOD_STRATEGIES } from './constants';
 
 interface Props {
