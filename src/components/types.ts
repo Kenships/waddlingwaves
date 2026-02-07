@@ -1,11 +1,13 @@
 
-export enum DuckCategory {
-  TIDE_SETTERS = 'Tide Setters',
-  CANADIAN_GEESE = 'Canadian Geese',
-  GOLDEN_BEAK = 'Golden Beak Society',
-  WADING_WADDLERS = 'Wading Waddlers',
-  MISCHIEVOUS_MALLARDS = 'Mischievous Mallards'
-}
+export const DuckCategory = {
+  TIDE_SETTERS: 'Tide Setters',
+  CANADIAN_GEESE: 'Canadian Geese',
+  GOLDEN_BEAK: 'Golden Beak Society',
+  WADING_WADDLERS: 'Wading Waddlers',
+  MISCHIEVOUS_MALLARDS: 'Mischievous Mallards'
+} as const;
+
+export type DuckCategory = (typeof DuckCategory)[keyof typeof DuckCategory];
 
 export interface UserAnswers {
   mbti?: string;

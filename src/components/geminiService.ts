@@ -1,12 +1,12 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
-import { UserAnswers, DuckResult, DuckCategory } from "../types";
-import { CATEGORY_SUMMARIES } from "../constants";
+import {type UserAnswers, type DuckResult, DuckCategory } from "./types";
+import { CATEGORY_SUMMARIES } from "./constants";
 
 // Initialize with process.env.API_KEY directly as required by guidelines
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
-// Internal interface for the AI's JSON output (we removed summary)
+// Internal interface for the AI's JSON output
 interface GeminiRawResponse {
   category: string;
   reasoning: string;
@@ -60,7 +60,8 @@ export const categorizeUser = async (answers: UserAnswers): Promise<DuckResult> 
     const data: GeminiRawResponse = JSON.parse(text);
 
     // Map AI string response to the DuckCategory enum
-    let category = DuckCategory.WADING_WADDLERS;
+    // FIX: Added explicit type annotation DuckCategory to allow assignment of other category values
+    let category: DuckCategory = DuckCategory.WADING_WADDLERS;
     const catName = data.category.toLowerCase();
 
     if (catName.includes("tide")) category = DuckCategory.TIDE_SETTERS;
@@ -71,11 +72,10 @@ export const categorizeUser = async (answers: UserAnswers): Promise<DuckResult> 
 
     return {
       category,
-      // USE THE STATIC SUMMARY FROM CONSTANTS BASED ON THE CATEGORY
       summary: CATEGORY_SUMMARIES[category],
       detailedReasoning: data.reasoning,
       spiritAnimalTraits: data.traits,
-      vibeColor: "" // Handled by UI constants
+      vibeColor: ""
     };
   } catch (error) {
     console.error("Gemini Error:", error);

@@ -1,7 +1,5 @@
 
-import React from 'react';
 import { DuckCategory } from './types';
-
 
 export const MBTI_OPTIONS = [
   'INTJ', 'INTP', 'ENTJ', 'ENTP',
@@ -42,9 +40,9 @@ export const CATEGORY_SUMMARIES: Record<DuckCategory, string> = {
 };
 
 export const CATEGORY_METADATA: Record<string, { color: string; icon: string }> = {
-  'Tide Setters': { color: 'bg-blue-600', icon: '🌊' },
-  'Canadian Geese': { color: 'bg-red-500', icon: '🦢' },
-  'Golden Beak Society': { color: 'bg-yellow-400', icon: '👑' },
-  'Wading Waddlers': { color: 'bg-emerald-500', icon: '🌿' },
-  'Mischievous Mallards': { color: 'bg-purple-500', icon: '🎭' }
+  [DuckCategory.TIDE_SETTERS]: { color: 'bg-blue-600', icon: '🌊' },
+  [DuckCategory.CANADIAN_GEESE]: { color: 'bg-red-500', icon: '🦢' },
+  [DuckCategory.GOLDEN_BEAK]: { color: 'bg-yellow-400', icon: '👑' },
+  [DuckCategory.WADING_WADDLERS]: { color: 'bg-emerald-500', icon: '🌿' },
+  [DuckCategory.MISCHIEVOUS_MALLARDS]: { color: 'bg-purple-500', icon: '🎭' }
 };
