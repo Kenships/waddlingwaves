@@ -1,19 +1,28 @@
-// comment
-import { GoogleGenAI, Type } from "@google/genai";
-import {type UserAnswers, type DuckResult, DuckCategory } from "./types";
-import { CATEGORY_SUMMARIES } from "./constants";
 
-// Initialize with process.env.API_KEY directly as required by guidelines
+import { GoogleGenAI, Type } from "@google/genai";
+import { UserAnswers, DuckResult, DuckCategory } from "./types";
+import { CATEGORY_SUMMARIES, AVATAR_ASSETS } from "./constants";
+
 const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
 
-// Internal interface for the AI's JSON output
 interface GeminiRawResponse {
   category: string;
   reasoning: string;
   traits: string[];
+  avatar: {
+    skin: string;
+    hat: string;
+    'handheld-item': string;
+    wings: string;
+  };
 }
 
 export const categorizeUser = async (answers: UserAnswers): Promise<DuckResult> => {
+  const availableSkins = AVATAR_ASSETS.skins.map(s => s.id).join(', ');
+  const availableHats = AVATAR_ASSETS.hats.map(h => h.id).join(', ');
+  const availableWings = AVATAR_ASSETS.wings.map(s => s.id).join(', ');
+  const availableHandheldItems = AVATAR_ASSETS['handheld-items'].map(i => i.id).join(', ');
+
   const prompt = `
     Analyze the following questionnaire answers and categorize the user into ONE of these 5 duck-themed categories:
     1. Tide Setters: Leaders, entrepreneurial, self-centered, ambitious.
@@ -24,15 +33,20 @@ export const categorizeUser = async (answers: UserAnswers): Promise<DuckResult> 
 
     User Answers:
     - MBTI: ${answers.mbti || 'Not provided'}
-    - First Song in Mind: ${answers.firstSong}
-    - Meme Choice: ${answers.memeResonance}
-    - Favorite Movie: ${answers.favoriteMovie}
-    - Birthday: ${answers.birthday}
-    - Duck Activity preference: ${answers.duckActivity}
-    - Food Strategy preference: ${answers.foodStrategy}
-    - Self-described traits: ${answers.personalityTraits}
+    - First Song: ${answers.firstSong}
+    - Meme: ${answers.memeResonance}
+    - Movie: ${answers.favoriteMovie}
+    - Activity: ${answers.duckActivity}
+    - Food Strategy: ${answers.foodStrategy}
+    - Traits: ${answers.personalityTraits}
 
-    Return a JSON response with the category name, detailed reasoning, and a list of 3 short spirit traits.
+    Additionally, select the best duck avatar items from these lists that represent their personality:
+    - Skins: [${availableSkins}]
+    - Hats: [${availableHats}]
+    - Wings: [${availableWings}]
+    - Handheld Items: [${availableHandheldItems}]
+
+    Return a JSON response with the category, reasoning, 3 traits, and the chosen avatar item IDs.
   `;
 
   try {
@@ -44,41 +58,44 @@ export const categorizeUser = async (answers: UserAnswers): Promise<DuckResult> 
         responseSchema: {
           type: Type.OBJECT,
           properties: {
-            category: { type: Type.STRING, description: "The specific duck category name selected." },
-            reasoning: { type: Type.STRING, description: "Detailed explanation linking their answers to the category." },
-            traits: { type: Type.ARRAY, items: { type: Type.STRING }, description: "3 short adjective traits." }
+            category: { type: Type.STRING },
+            reasoning: { type: Type.STRING },
+            traits: { type: Type.ARRAY, items: { type: Type.STRING } },
+            avatar: {
+              type: Type.OBJECT,
+              properties: {
+                skin: { type: Type.STRING },
+                hat: { type: Type.STRING },
+                wings: { type: Type.STRING },
+                'handheld-item': { type: Type.STRING }
+              },
+              required: ["skin", "hat", "wings", "handheld-item"]
+            }
           },
-          required: ["category", "reasoning", "traits"]
+          required: ["category", "reasoning", "traits", "avatar"]
         }
       }
     });
 
-    const text = response.text;
-    if (!text) {
-      throw new Error("The duck oracle remained silent.");
-    }
-    const data: GeminiRawResponse = JSON.parse(text);
-
-    // Map AI string response to the DuckCategory enum
-    // FIX: Added explicit type annotation DuckCategory to allow assignment of other category values
+    const data: GeminiRawResponse = JSON.parse(response.text);
+    
     let category: DuckCategory = DuckCategory.WADING_WADDLERS;
     const catName = data.category.toLowerCase();
-
     if (catName.includes("tide")) category = DuckCategory.TIDE_SETTERS;
     else if (catName.includes("geese") || catName.includes("goose")) category = DuckCategory.CANADIAN_GEESE;
     else if (catName.includes("golden")) category = DuckCategory.GOLDEN_BEAK;
     else if (catName.includes("mischievous") || catName.includes("mallard")) category = DuckCategory.MISCHIEVOUS_MALLARDS;
-    else if (catName.includes("wading") || catName.includes("waddler")) category = DuckCategory.WADING_WADDLERS;
 
     return {
       category,
       summary: CATEGORY_SUMMARIES[category],
       detailedReasoning: data.reasoning,
       spiritAnimalTraits: data.traits,
-      vibeColor: ""
+      vibeColor: "",
+      avatar: data.avatar
     };
   } catch (error) {
     console.error("Gemini Error:", error);
-    throw new Error("Failed to consult the Oracle of the Pond.");
+    throw new Error("The pond is blocked. Check your connection!");
   }
 };

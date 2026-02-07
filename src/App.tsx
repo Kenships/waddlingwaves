@@ -1,4 +1,4 @@
-// comment
+
 import React, { useState } from 'react';
 import Questionnaire from './components/Questionnaire';
 import ResultView from './components/ResultView';

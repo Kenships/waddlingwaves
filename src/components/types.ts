@@ -1,4 +1,3 @@
-// comment
 export const DuckCategory = {
   TIDE_SETTERS: 'Tide Setters',
   CANADIAN_GEESE: 'Canadian Geese',
@@ -8,6 +7,20 @@ export const DuckCategory = {
 } as const;
 
 export type DuckCategory = (typeof DuckCategory)[keyof typeof DuckCategory];
+
+export interface AvatarAsset {
+  id: string;
+  name: string;
+  imagePath: string;
+  description: string;
+}
+
+export interface DuckAvatarConfig {
+  skin: string;
+  hat: string;
+  'handheld-item': string;
+  wings: string;
+}
 
 export interface UserAnswers {
   mbti?: string;
@@ -26,11 +39,5 @@ export interface DuckResult {
   detailedReasoning: string;
   spiritAnimalTraits: string[];
   vibeColor: string;
-}
-
-export interface GeminiResponse {
-  category: string;
-  summary: string;
-  reasoning: string;
-  traits: string[];
+  avatar: DuckAvatarConfig;
 }
