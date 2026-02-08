@@ -44,28 +44,6 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
     personalityTraits: ''
   });
 
-  const MEME_OPTIONS = [
-    {
-      id: 'justin bieber',
-      label: 'Bieber Fever',
-      image: '/memes/justin bieber.jpg'
-    },
-    {
-      id: 'skeleton',
-      label: 'RAHHHH',
-      image: '/memes/skeleton.png'
-    },
-    {
-      id: 'baby',
-      label: 'Yooooo',
-      image: '/memes/meme4.jpg'
-    },
-    {
-      id: 'me?',
-      label: 'me?',
-      image: '/memes/meme 3.jpg'
-    }
-  ];
 
   const zodiac = useMemo(() => getZodiacSign(answers.birthday), [answers.birthday]);
 

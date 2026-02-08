@@ -28,10 +28,30 @@ export const MBTI_OPTIONS = [
 ];
 
 export const MEME_OPTIONS = [
-  { id: 'doge', label: 'Doge (Much Wow, Very Duck)', image: 'https://picsum.photos/seed/doge/200' },
-  { id: 'distracted', label: 'Distracted Boyfriend', image: 'https://picsum.photos/seed/distracted/200' },
-  { id: 'fine', label: 'This is Fine (Burning Pond)', image: 'https://picsum.photos/seed/fine/200' },
-  { id: 'success', label: 'Success Kid', image: 'https://picsum.photos/seed/success/200' }
+  {
+    id: 'justin bieber',
+    description: 'Young Justin bieber making a heart his hands in a very cute manner, potentially towards categories Golden Beak Society and Wading Waddlers',
+    label: 'Bieber Fever',
+    image: '/memes/justin bieber.jpg'
+  },
+  {
+    id: 'skeleton',
+    description: 'Skeleton from a video roaring and bashing his shield with his sword, potentially leans towards Canadian geese and Mischievious Mallards',
+    label: 'RAHHHH',
+    image: '/memes/skeleton.png'
+  },
+  {
+    id: 'baby',
+    description: 'AI generated baby holding its fist to its mouth in a manner to show that something very cool has just happened, potentially leans towards Golden Beak Society and Tide Setters',
+    label: 'Yooooo',
+    image: '/memes/meme4.jpg'
+  },
+  {
+    id: 'me?',
+    description: 'Stock photo of a man pointing to himself and acting confused about what is going on as if he does not know why he has been selected, potentially leans towards wading waddlers and mischievious mallards',
+    label: 'me?',
+    image: '/memes/meme 3.jpg'
+  }
 ];
 
 export const DUCK_ACTIVITIES = [
