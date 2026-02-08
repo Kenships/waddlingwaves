@@ -198,7 +198,7 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
         <label className="block text-2xl font-black text-gray-800 italic underline decoration-sky-300 underline-offset-4">
           6. What activity would you enjoy most?
         </label>
-        <div className="grid grid-cols-1 gap-4">
+        <div className="grid grid-cols-1">
           {DUCK_ACTIVITIES.map(act => (
               <button
                   key={act}
