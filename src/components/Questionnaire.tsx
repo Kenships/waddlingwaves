@@ -44,6 +44,29 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
     personalityTraits: ''
   });
 
+  const MEME_OPTIONS = [
+    {
+      id: 'justin bieber',
+      label: 'Bieber Fever',
+      image: '/memes/justin bieber.jpg'
+    },
+    {
+      id: 'skeleton',
+      label: 'RAHHHH',
+      image: '/memes/skeleton.png'
+    },
+    {
+      id: 'baby',
+      label: 'Yooooo',
+      image: '/memes/meme4.jpg'
+    },
+    {
+      id: 'me?',
+      label: 'me?',
+      image: '/memes/meme 3.jpg'
+    }
+  ];
+
   const zodiac = useMemo(() => getZodiacSign(answers.birthday), [answers.birthday]);
 
   const isBirthdayValid = useMemo(() => {
@@ -164,20 +187,26 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
 
       <div className="grid grid-cols-2 gap-6">
         {MEME_OPTIONS.map(meme => (
-            <button
-                key={meme.id}
-                onClick={() => updateAnswer('memeResonance', meme.id)}
-                className={`p-6 sketch-box transition-all transform hover:scale-105 active:scale-95 text-center ${
+          <button
+            key={meme.id}
+            onClick={() => updateAnswer('memeResonance', meme.id)}
+            className={`p-4 rounded-xl border-2 transition-all duration-300 ${
+                answers.memeResonance === meme.id
+                    ? 'border-yellow-400 bg-yellow-100 shadow-md scale-[1.02]'
+                    : 'border-transparent bg-white shadow-sm hover:border-sky-200 hover:shadow-md'
+            }`}
+          >
+            <img src={meme.image} alt={meme.label} className="w-full h-27 object-cover rounded-lg mb-2" />
+            <span
+                className={`text-s font-semibold transition-colors duration-300 ${
                     answers.memeResonance === meme.id
-                        ? 'bg-sky-500 border-sky-800 scale-105 shadow-xl rotate-1'
-                        : 'bg-white border-gray-400 hover:border-sky-400'
+                        ? "text-yellow-800"
+                        : "text-gray-700"
                 }`}
             >
-              <img src={meme.image} alt={meme.label} className="w-full h-40 object-cover sketch-box border-none mb-4" />
-              <span className={`text-xl font-black uppercase tracking-tighter ${answers.memeResonance === meme.id ? 'text-white' : 'text-gray-700'}`}>
-              {meme.label}
-            </span>
-            </button>
+  {meme.label}
+</span>
+          </button>
         ))}
       </div>
     </div>,
