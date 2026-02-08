@@ -24,57 +24,57 @@ const DuckAvatar: React.FC<Props> = ({ config }) => {
   ];
 
   return (
-      <div className="flex flex-col items-center">
-        {/* Avatar Container */}
-        <div className="relative w-64 h-64 bg-sky-50 rounded-full border-4 border-white shadow-inner overflow-hidden flex items-center justify-center">
+    <div className="flex flex-col items-center">
+      {/* Avatar Container */}
+      <div className="relative w-64 h-64 bg-sky-50 rounded-full border-4 border-white shadow-inner overflow-hidden flex items-center justify-center">
+        {layers.map((layer) => {
+          const asset = getAsset(layer.cat, layer.id);
+          if (!asset || !asset.imagePath) return null;
+          return (
+            <img
+              key={layer.cat}
+              src={asset.imagePath}
+              alt={asset.name}
+              className="absolute inset-0 w-full h-full object-contain transition-transform hover:scale-105"
+              style={{ zIndex: layer.z }}
+              onMouseEnter={() => setHoveredDescription(asset.description)}
+              onMouseLeave={() => setHoveredDescription(null)}
+            />
+          );
+        })}
+      </div>
+
+      {/* Hover Information / Inventory List */}
+      <div className="mt-6 w-full max-w-xs space-y-2">
+        <h4 className="text-xs font-bold text-sky-900 uppercase tracking-tighter text-center opacity-50 mb-3">Equipped Items (Hover to inspect)</h4>
+        <div className="flex flex-wrap justify-center gap-2">
           {layers.map((layer) => {
             const asset = getAsset(layer.cat, layer.id);
-            if (!asset || !asset.imagePath) return null;
+            if (!asset || asset.id === 'none') return null;
             return (
-                <img
-                    key={layer.cat}
-                    src={asset.imagePath}
-                    alt={asset.name}
-                    className="absolute inset-0 w-full h-full object-contain transition-transform hover:scale-105"
-                    style={{ zIndex: layer.z }}
-                    onMouseEnter={() => setHoveredDescription(asset.description)}
-                    onMouseLeave={() => setHoveredDescription(null)}
-                />
+              <div 
+                key={layer.cat}
+                className="group relative cursor-help"
+                onMouseEnter={() => setHoveredDescription(asset.description)}
+                onMouseLeave={() => setHoveredDescription(null)}
+              >
+                <div className="px-3 py-1 bg-white border border-sky-100 rounded-full text-xs font-bold text-sky-700 shadow-sm hover:border-sky-400 transition-colors">
+                  {asset.name}
+                </div>
+              </div>
             );
           })}
         </div>
 
-        {/* Hover Information / Inventory List */}
-        <div className="mt-6 w-full max-w-xs space-y-2">
-          <h4 className="text-xs font-bold text-sky-900 uppercase tracking-tighter text-center opacity-50 mb-3">Equipped Items (Hover to inspect)</h4>
-          <div className="flex flex-wrap justify-center gap-2">
-            {layers.map((layer) => {
-              const asset = getAsset(layer.cat, layer.id);
-              if (!asset || asset.id === 'none') return null;
-              return (
-                  <div
-                      key={layer.cat}
-                      className="group relative cursor-help"
-                      onMouseEnter={() => setHoveredDescription(asset.description)}
-                      onMouseLeave={() => setHoveredDescription(null)}
-                  >
-                    <div className="px-3 py-1 bg-white border border-sky-100 rounded-full text-xs font-bold text-sky-700 shadow-sm hover:border-sky-400 transition-colors">
-                      {asset.name}
-                    </div>
-                  </div>
-              );
-            })}
-          </div>
-
-          <div className="min-h-[48px] pt-4 text-center">
-            {hoveredDescription ? (
-                <p className="text-sm text-sky-800 animate-fade-in italic">“{hoveredDescription}”</p>
-            ) : (
-                <p className="text-xs text-gray-400">Hover over the duck or items to read their secret lore.</p>
-            )}
-          </div>
+        <div className="min-h-[48px] pt-4 text-center">
+          {hoveredDescription ? (
+            <p className="text-sm text-sky-800 animate-fade-in italic">“{hoveredDescription}”</p>
+          ) : (
+            <p className="text-xs text-gray-400">Hover over the duck or items to read their secret lore.</p>
+          )}
         </div>
       </div>
+    </div>
   );
 };
 

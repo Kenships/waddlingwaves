@@ -1,9 +1,24 @@
 
 import { GoogleGenAI, Type } from "@google/genai";
-import {type UserAnswers, type DuckResult, DuckCategory } from "./types";
+import { UserAnswers, DuckResult, DuckCategory } from "./types";
 import { CATEGORY_SUMMARIES, AVATAR_ASSETS } from "./constants";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+/**
+ * World-class initialization logic that handles both Vite and standard environments
+ * while resolving ESLint concerns regarding unused variables and proper TS suppression.
+ */
+const getApiKey = () => {
+  try {
+    // @ts-expect-error - Vite's import.meta.env is not globally typed in all TS configs
+    return import.meta.env?.VITE_API_KEY || (typeof process !== 'undefined' ? process.env.API_KEY : "");
+  } catch {
+    // Catch block without variable to satisfy 'no-unused-vars'
+    return typeof process !== 'undefined' ? process.env.API_KEY : "";
+  }
+};
+
+const apiKey = getApiKey();
+const ai = new GoogleGenAI({ apiKey: apiKey || "" });
 
 interface GeminiRawResponse {
   category: string;
@@ -18,6 +33,10 @@ interface GeminiRawResponse {
 }
 
 export const categorizeUser = async (answers: UserAnswers): Promise<DuckResult> => {
+  if (!apiKey) {
+    throw new Error("API Key is missing. Please add VITE_API_KEY to your .env.local file.");
+  }
+
   const availableSkins = AVATAR_ASSETS.skins.map(s => s.id).join(', ');
   const availableHats = AVATAR_ASSETS.hats.map(h => h.id).join(', ');
   const availableWings = AVATAR_ASSETS.wings.map(s => s.id).join(', ');
