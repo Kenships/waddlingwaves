@@ -60,16 +60,18 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">MBTI Type (Optional)</label>
         <select
-            className={`w-full p-3 border rounded-xl outline-none focus:ring-2 
-                ${answers.mbti
-                ? "bg-yellow-200 border-yellow-400 focus:ring-yellow-400"
+            className={`w-full p-3 border rounded-xl outline-none focus:ring-2 transition-colors duration-300
+    ${answers.mbti
+                ? "bg-yellow-200 border-yellow-400 focus:ring-yellow-400" // only the box turns yellow
                 : "bg-white border-sky-200 focus:ring-sky-500"
             }`}
-          value={answers.mbti}
-          onChange={(e) => updateAnswer('mbti', e.target.value)}
+            value={answers.mbti}
+            onChange={(e) => updateAnswer('mbti', e.target.value)}
         >
           <option value="">Select your type...</option>
-          {MBTI_OPTIONS.map(opt => <option key={opt} value={opt}>{opt}</option>)}
+          {MBTI_OPTIONS.map(opt => (
+              <option key={opt} value={opt}>{opt}</option>
+          ))}
         </select>
       </div>
 
@@ -161,10 +163,10 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
             <button
               key={act}
               onClick={() => updateAnswer('duckActivity', act)}
-              className={`w-full text-left p-3 rounded-lg border transition-all duration-300 ${
+              className={`w-full text-left p-3 rounded-lg border-2 transition-all duration-300 ${
                   answers.duckActivity === act
-                      ? 'bg-yellow-200 border-yellow-400 text-yellow-800 shadow-md'
-                      : 'bg-white hover:bg-yellow-50 border-gray-200'
+                      ? 'border-yellow-400 bg-yellow-200 shadow-md scale-[1.02]'
+                      : 'border-transparent bg-white shadow-sm hover:border-sky-200 hover:shadow-md'
               }`}
             >
               {act}
@@ -182,8 +184,10 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
             <button
               key={strat}
               onClick={() => updateAnswer('foodStrategy', strat)}
-              className={`w-full text-left p-3 rounded-lg border transition-all ${
-                answers.foodStrategy === strat ? 'bg-sky-500 text-white' : 'bg-white hover:bg-sky-50'
+              className={`w-full text-left p-3 rounded-lg border-2 transition-all duration-300 ${
+                  answers.foodStrategy === strat
+                      ? 'border-yellow-400 bg-yellow-200 shadow-md scale-[1.02]'
+                      : 'border-transparent bg-white shadow-sm hover:border-sky-200 hover:shadow-md'
               }`}
             >
               {strat}
@@ -201,9 +205,14 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
         <textarea
           rows={3}
           placeholder="e.g. Fiercely loyal, somewhat chaotic..."
-          className="w-full p-3 border border-sky-200 rounded-xl focus:ring-2 focus:ring-sky-500 outline-none"
+
           value={answers.personalityTraits}
           onChange={(e) => updateAnswer('personalityTraits', e.target.value)}
+          className={`w-full p-3 border rounded-xl outline-none focus:ring-2 transition-colors duration-300
+        ${answers.personalityTraits
+              ? "bg-yellow-200 border-yellow-400 focus:ring-yellow-400"
+              : "bg-white border-sky-200 focus:ring-sky-500"
+          }`}
         />
       </div>
       <p className="text-sm text-gray-500 italic">Our AI ducks are analyzing your essence...</p>
