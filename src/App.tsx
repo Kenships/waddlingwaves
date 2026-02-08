@@ -93,7 +93,7 @@ const App: React.FC = () => {
           <div className="flex items-center space-x-4 cursor-pointer group" onClick={reset}>
             <div className="w-14 h-14 bg-amber-400 sketch-box-thick flex items-center justify-center text-4xl shadow-md group-hover:rotate-12 transition-transform">
               <img src={DuckIcon}></img>
-            </div>"
+            </div>
             <h1 className="text-4xl font-black text-gray-900 italic tracking-tighter uppercase">Waddling<span className="text-sky-500 underline decoration-wavy">Waves</span></h1>
           </div>
           {waddleMembers.length > 0 && view === 'intro' && (
