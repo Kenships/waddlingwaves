@@ -1,7 +1,7 @@
 export const DuckCategory = {
   TIDE_SETTERS: 'Tide Setters',
-  CANADIAN_GEESE: 'Canadian Geese',
-  GOLDEN_BEAK: 'Golden Beak Society',
+  CANADA_GOOSE: 'Canada Goose',
+  GOLDEN_BEAK: 'Golden Beak',
   WADING_WADDLERS: 'Wading Waddlers',
   MISCHIEVOUS_MALLARDS: 'Mischievous Mallards'
 } as const;
@@ -23,6 +23,7 @@ export interface DuckAvatarConfig {
 }
 
 export interface UserAnswers {
+  name: string;
   mbti?: string;
   firstSong: string;
   memeResonance: string;
@@ -40,4 +41,15 @@ export interface DuckResult {
   spiritAnimalTraits: string[];
   vibeColor: string;
   avatar: DuckAvatarConfig;
+}
+
+export interface WaddleMember {
+  id: string;
+  name: string;
+  category: DuckCategory;
+  avatar: DuckAvatarConfig;
+  joinedAt: string;
+  summary: string;
+  detailedReasoning: string;
+  spiritAnimalTraits: string[];
 }

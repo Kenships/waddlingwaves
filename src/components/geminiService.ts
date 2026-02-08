@@ -114,7 +114,7 @@ export const categorizeUser = async (answers: UserAnswers): Promise<DuckResult> 
     let category: DuckCategory = DuckCategory.WADING_WADDLERS;
     const catName = data.category.toLowerCase();
     if (catName.includes("tide")) category = DuckCategory.TIDE_SETTERS;
-    else if (catName.includes("geese") || catName.includes("goose")) category = DuckCategory.CANADIAN_GEESE;
+    else if (catName.includes("geese") || catName.includes("goose")) category = DuckCategory.CANADA_GOOSE;
     else if (catName.includes("golden")) category = DuckCategory.GOLDEN_BEAK;
     else if (catName.includes("mischievous") || catName.includes("mallard")) category = DuckCategory.MISCHIEVOUS_MALLARDS;
 
