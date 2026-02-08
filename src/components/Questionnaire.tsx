@@ -76,7 +76,7 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
         <input
             type="text"
             placeholder="e.g. Quackimedes"
-            className="w-full shadow-sm focus:rotate-1 transition-transform"
+            className="w-full shadow-sm focus:rotate-1 transition-transform text-xl"
             value={answers.name}
             onChange={(e) => updateAnswer('name', e.target.value)}
         />
@@ -87,7 +87,7 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
           2. Your MBTI Type (Optional)
         </label>
         <select
-            className="w-full bg-white shadow-sm"
+            className="w-full bg-white shadow-sm text-xl"
             value={answers.mbti}
             onChange={(e) => updateAnswer('mbti', e.target.value)}
         >
@@ -104,7 +104,7 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
           <div className="relative flex-1">
             <input
                 type="date"
-                className={`w-full bg-white shadow-sm ${answers.birthday && !isBirthdayValid ? 'border-red-500 bg-red-50' : ''}`}
+                className={`w-full bg-white shadow-sm ${answers.birthday && !isBirthdayValid ? 'border-red-500 bg-red-50' : '' } text-xl`}
                 value={answers.birthday}
                 onChange={(e) => updateAnswer('birthday', e.target.value)}
                 max={new Date().toISOString().split('T')[0]}
@@ -137,7 +137,7 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
         <input
             type="text"
             placeholder="e.g. Bohemian Rhapsody"
-            className="w-full shadow-sm"
+            className="w-full shadow-sm text-xl"
             value={answers.firstSong}
             onChange={(e) => updateAnswer('firstSong', e.target.value)}
         />
@@ -150,7 +150,7 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
         <input
             type="text"
             placeholder="e.g. The Grand Budapest Hotel"
-            className="w-full shadow-sm"
+            className="w-full shadow-sm text-xl"
             value={answers.favoriteMovie}
             onChange={(e) => updateAnswer('favoriteMovie', e.target.value)}
         />
@@ -246,7 +246,7 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
         <textarea
             rows={4}
             placeholder="e.g. Fiercely loyal, somewhat chaotic..."
-            className="w-full shadow-inner"
+            className="w-full shadow-inner text-xl"
             value={answers.personalityTraits}
             onChange={(e) => updateAnswer('personalityTraits', e.target.value)}
         />

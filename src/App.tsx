@@ -164,7 +164,8 @@ const App: React.FC = () => {
                 <div className="pt-8 flex flex-col sm:flex-row items-center justify-center gap-8">
                   <button
                       onClick={startQuiz}
-                      className="px-16 py-6 bg-amber-500 sketch-button text-white font-black text-3xl shadow-2xl hover:scale-105"
+                      className="px-16 py-6 bg-amber-500 sketch-button text-white font-black text-3xl shadow-2xl transition-transform hover:rotate-1"
+
                   >
                     Begin Assessment
                   </button>
