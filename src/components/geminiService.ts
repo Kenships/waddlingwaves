@@ -33,17 +33,21 @@ export const categorizeUser = async (answers: UserAnswers): Promise<DuckResult> 
   }
 
   const availableSkins = AVATAR_ASSETS.skins.map(s => s.id).join(', ');
+  const skinDescriptions = AVATAR_ASSETS.skins.map(s => s.description).join(', ');
   const availableHats = AVATAR_ASSETS.hats.map(h => h.id).join(', ');
+  const hatDescriptions = AVATAR_ASSETS.hats.map(h => h.description).join(', ');
   const availableWings = AVATAR_ASSETS.wings.map(s => s.id).join(', ');
+  const wingDescriptions = AVATAR_ASSETS.wings.map(s => s.description).join(', ');
   const availableHandheldItems = AVATAR_ASSETS['handheld-items'].map(i => i.id).join(', ');
+  const handheldItemsDescriptions = AVATAR_ASSETS['handheld-items'].map(i => i.description).join(', ');
 
   const prompt = `
     Analyze the following questionnaire answers and categorize the user into ONE of these 5 duck-themed categories:
-    1. Tide Setters: Leaders, entrepreneurial, self-centered, ambitious.
-    2. Canadian Geese: Abrasive, upfront, bold, judging.
-    3. Golden Beak Society: Very social, outgoing, friendly, charismatic.
-    4. Wading Waddlers: Quiet, introverted, keeps to themselves, peaceful.
-    5. Mischievous Mallards: Playful, clever, unpredictable troublemakers.
+    1. Tide Setters: Natural leaders who tend to take charge and would prefer to be in charge of the pond. Tide setters are driven and motivated to achieve their goals, even if it ends up ruffling a few feathers.
+    2. Canadian Geese: Straight to the point ducks who don’t shy away from confrontation and will never be afraid to speak their mind. Canadian geese will point out even the harshest of truths to their fellow ducks when nobody else would.
+    3. Golden Beak Society: The stars of the show, ducks of the Golden Beak Society tend to be the life of the pond. They thrive on interaction and energy, often becoming the glue that holds the flock together and will never miss a good duck get-together.
+    4. Wading Waddlers: Self-reserved ducks who like to stay out of trouble and mind their own business. Wading Waddlers prefer the edges of the pond, and hold their closest duckpals very close to their hearts.
+    5. Mischievous Mallards: The playful ducks that tend to act before they think (even if it ends a little chaotic). Mischievous mallards are never afraid to stir the pond just to have a good laugh, love them or hate them, they’re always good company. 
 
     User Answers:
     - MBTI: ${answers.mbti || 'Not provided'}
@@ -62,11 +66,11 @@ export const categorizeUser = async (answers: UserAnswers): Promise<DuckResult> 
     - If they are a Water sign (Cancer, Scorpio, Pisces), you MUST pick "deep_blue".
     - Fallback: "classic_yellow".
 
-    AVATAR ITEM REGISTRY:
-    - Skins: [${availableSkins}]
-    - Hats: [${availableHats}]
-    - Wings: [${availableWings}]
-    - Handheld Items: [${availableHandheldItems}]
+    AVATAR ITEM REGISTRY [id], [description]:
+    - Skins: [${availableSkins}], [${skinDescriptions}]
+    - Hats: [${availableHats}], [${hatDescriptions}]
+    - Wings: [${availableWings}], [${wingDescriptions}]
+    - Handheld Items: [${availableHandheldItems}], [${handheldItemsDescriptions}]
 
     RESPONSE REQUIREMENTS:
     1. Return a JSON response with the category, reasoning, 3 traits, and the chosen avatar item IDs. 
@@ -76,6 +80,7 @@ export const categorizeUser = async (answers: UserAnswers): Promise<DuckResult> 
   `;
 
   try {
+    console.log(prompt)
     const response = await ai.models.generateContent({
       model: "gemini-3-flash-preview",
       contents: prompt,
