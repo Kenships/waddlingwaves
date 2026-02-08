@@ -53,31 +53,31 @@ export const FOOD_STRATEGIES = [
 // Expanded Avatar Asset Registry to support Zodiac-based skins
 export const AVATAR_ASSETS = {
   skins: [
-    { id: 'volcano_red', name: 'Fire Red', imagePath: RedDuck, description: 'The timeless pond look. Reliable and bright.' },
-    { id: 'mallard_green', name: 'Earth Green', imagePath: GreenDuck, description: 'Regal and wild. Perfectly adapted for mischief.' },
-    { id: 'ghost_white', name: 'Cloud White', imagePath: WhiteDuck, description: 'Pure, calm, and slightly introverted.' },
-    { id: 'deep_blue', name: 'Water Blue', imagePath: BlueDuck, description: 'Pure, calm, and slightly introverted.' }
+    { id: 'volcano_red', name: 'Fire Red', imagePath: RedDuck, description: 'According to your astrology sign, you’re a fire type. This means you have great passion and lots of fiery energy! When you believe in it, you tend to give it your all, even sometimes stubbornly so.' },
+    { id: 'mallard_green', name: 'Earth Green', imagePath: GreenDuck, description: 'According to your astrology sign, you’re an earth type. This means that you’re typically a very practical and stable person. You\'re grounded and reliable, with a great sense of loyalty to the people you care about.' },
+    { id: 'ghost_white', name: 'Cloud White', imagePath: WhiteDuck, description: 'According to your astrology sign, you’re an air type. You tend to follow the natural flow of life, using your creative and witty personality to flourish in social situations.' },
+    { id: 'deep_blue', name: 'Water Blue', imagePath: BlueDuck, description: 'According to your astrology sign, you’re a water type. You are very in touch with your emotions, backed by your intelligence, you always trust your intuition to lead you in the right direction.' }
   ],
   hats: [
-    { id: 'bucket_hat', name: 'Bucket Hat', imagePath: BucketHat, description: 'For the duck that rules the roost.' },
-    { id: 'straw_hat', name: 'Straw Hat', imagePath: StrawHat, description: 'Cool, casual, and definitely doesn’t care about the currents.' },
-    { id: 'halo', name: 'Halo', imagePath: Halo, description: 'Sharp-eyed and ready to solve pond mysteries.' },
-    { id: 'backwards_cap', name: 'Backwards Cap', imagePath: Cap, description: 'Keeping it natural.' },
-    { id: 'beanie', name: 'Beanie', imagePath: Beanie, description: 'Keeping it natural.' }
+    { id: 'bucket_hat', name: 'Bucket Hat', imagePath: BucketHat, description: 'You’re adventurous and curious, always ready to explore beyond the pond. The bucket hat says you’re prepared for splashes, waves, and a little chaos.' },
+    { id: 'straw_hat', name: 'Straw Hat', imagePath: StrawHat, description: 'You’re relaxed and laid-back, soaking in the sun by the water’s edge. Life’s better when you take it slow and enjoy the breeze.' },
+    { id: 'halo', name: 'Halo', imagePath: Halo, description: 'You’re friendly, charming, and impossible to ignore. Ducks and humans alike can’t help but smile when you’re around.' },
+    { id: 'backwards_cap', name: 'Backwards Cap', imagePath: Cap, description: 'You’re mischievous and playful, always stirring trouble just for fun. Rules are optional, and chaos is part of your charm.' },
+    { id: 'beanie', name: 'Beanie', imagePath: Beanie, description: 'You’re warm-hearted and protective, always looking out for the flock. Comfort and kindness are your signature moves.' }
   ],
   wings: [
-    { id: 'angel_wings', name: 'Angelic Wings', imagePath: Angelic, description: 'Graceful feathers for a duck of pure intentions.' },
-    { id: 'butterfly_wings', name: 'Butterfly Wings', imagePath: Butterfly, description: 'For the Mischievous Mallard that thrives in the dark.' },
-    { id: 'Demon_Wings', name: 'Demon Wings', imagePath: Demon, description: 'High-tech mobility for the modern pond leader.' },
-    { id: 'Mechanical_Wings', name: 'Mechanical Wings', imagePath: Mechanical, description: 'Plain, aerodynamic, and functional.' },
-    { id: 'Phoenix_Wings', name: 'Phoenix Wings', imagePath: Phoenix, description: 'Plain, aerodynamic, and functional.' }
+    { id: 'angel_wings', name: 'Angelic Wings', imagePath: Angelic, description: 'Soft and fluffy, these wings belong to a duck who always watches over the flock. You’re gentle, caring, and quick to help a fellow duck in need.' },
+    { id: 'butterfly_wings', name: 'Butterfly Wings', imagePath: Butterfly, description: 'Bright and colorful, these wings make you stand out on the pond. You’re playful, creative, and bring joy wherever you waddle.' },
+    { id: 'Demon_Wings', name: 'Demon Wings', imagePath: Demon, description: 'Dark and dramatic, these wings belong to a duck who thrives on chaos. You’re bold, rebellious, and definitely not afraid to ruffle a few feathers.' },
+    { id: 'Mechanical_Wings', name: 'Mechanical Wings', imagePath: Mechanical, description: 'Metallic and precise, built for a duck who loves innovation. You’re clever, resourceful, and always thinking one step ahead.' },
+    { id: 'Phoenix_Wings', name: 'Phoenix Wings', imagePath: Phoenix, description: 'Fiery and radiant, these wings belong to a duck that always bounces back. No matter what happens, you rise again stronger than before.' }
   ],
   'handheld-items': [
-    { id: 'Paintbrush', name: 'Painter', imagePath: Brush, description: 'Busy making big pond business moves.' },
-    { id: 'Basketball', name: 'Baller', imagePath: Ball, description: 'A hard-earned (stolen) snack.' },
-    { id: 'Gaming controller', name: 'Gamer', imagePath: Controller, description: 'Ready to cast unpredictable spells.' },
-    { id: 'Martini Glass', name: 'Drinker', imagePath: Martini, description: 'Ready to cast unpredictable spells.' },
-    { id: 'Briefcase', name: 'Worker', imagePath: Briefcase, description: 'Ready to cast unpredictable spells.' }
+    { id: 'Paintbrush', name: 'Painter', imagePath: Brush, description: 'You’re creative and expressive, always seeing the world a little differently. You enjoy bringing ideas to life in your own unique way. Creativity isn’t just a hobby for you—it’s part of who you are!' },
+    { id: 'Basketball', name: 'Baller', imagePath: Ball, description: 'You seem like a duck who is competitive, energetic, and loves a good challenge. You thrive in fast-paced environments and never back down easily. Once the game starts, you’re locked in.' },
+    { id: 'Gaming controller', name: 'Gamer', imagePath: Controller, description: 'Whether it’s co-op or solo, you love settling in for a good game. You enjoy strategy, teamwork, and having fun in the moment.' },
+    { id: 'Martini Glass', name: 'Drinker', imagePath: Martini, description: 'You’re a social butterfly who loves being around people. You thrive in lively settings filled with conversation and laughter. Wherever you go, you bring good vibes with you!' },
+    { id: 'Briefcase', name: 'Worker', imagePath: Briefcase, description: 'You’re all about that bag and focused on your future. You’re ambitious, organized, and know what you want. When it comes to your goals, you don’t play around!' }
   ]
 };
 

@@ -190,10 +190,10 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
           <button
             key={meme.id}
             onClick={() => updateAnswer('memeResonance', meme.id)}
-            className={`p-4 rounded-xl border-2 transition-all duration-300 ${
+            className={`p-6 sketch-box transition-all transform hover:scale-105 active:scale-95 text-center ${
                 answers.memeResonance === meme.id
-                    ? 'border-yellow-400 bg-yellow-100 shadow-md scale-[1.02]'
-                    : 'border-transparent bg-white shadow-sm hover:border-sky-200 hover:shadow-md'
+                    ? 'bg-sky-500 border-sky-800 scale-105 shadow-xl rotate-1'
+                    : 'bg-white border-gray-400 hover:border-sky-400'
             }`}
           >
             <img src={meme.image} alt={meme.label} className="w-full h-27 object-cover rounded-lg mb-2" />
