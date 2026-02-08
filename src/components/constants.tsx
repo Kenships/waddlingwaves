@@ -31,12 +31,14 @@ export const FOOD_STRATEGIES = [
   'Dig out the trash for food'
 ];
 
-// Updated Avatar Asset Registry
+// Expanded Avatar Asset Registry to support Zodiac-based skins
 export const AVATAR_ASSETS = {
   skins: [
     { id: 'classic_yellow', name: 'Classic Yellow', imagePath: '/assets/duck/skin_yellow.png', description: 'The timeless pond look. Reliable and bright.' },
-    { id: 'mallard_green', name: 'Mallard Green', imagePath: '/assets/duck/skin_green.png', description: 'Regal and wild. Perfectly adapted for mischief.' },
-    { id: 'ghost_white', name: 'Ghost White', imagePath: '/assets/duck/skin_white.png', description: 'Pure, calm, and slightly introverted.' }
+    { id: 'mallard_green', name: 'Earth Green', imagePath: '/assets/duck/skin_green.png', description: 'Grounded and wild. Perfectly adapted for Earth signs.' },
+    { id: 'ghost_white', name: 'Cloud White', imagePath: '/assets/duck/skin_white.png', description: 'Pure, calm, and breezy. Floating like an Air sign.' },
+    { id: 'volcano_red', name: 'Fire Red', imagePath: '/assets/duck/skin_red.png', description: 'Bold, hot, and spicy. For the ducks with Fire in their feathers.' },
+    { id: 'deep_blue', name: 'Water Blue', imagePath: '/assets/duck/skin_blue.png', description: 'Cool, deep, and flowing. Perfectly at home in the Water.' }
   ],
   hats: [
     { id: 'crown', name: 'Golden Crown', imagePath: '/assets/duck/hat_crown.png', description: 'For the duck that rules the roost.' },
