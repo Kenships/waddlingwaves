@@ -55,7 +55,7 @@ export const MEME_OPTIONS = [
 ];
 
 export const DUCK_ACTIVITIES = [
-  'Venture into the ocean',
+  'Exploring new parts of the pond and beyond',
   'Chill on the banks',
   'Play with humans that pass by',
   'Mess with the other ducks',
@@ -64,10 +64,10 @@ export const DUCK_ACTIVITIES = [
 
 export const FOOD_STRATEGIES = [
   'Hunt for food yourself',
-  'Find someone else who’s better at hunting and piggyback them',
-  'Beg humans for food',
-  'Harass innocent bystanders for food',
-  'Dig out the trash for food'
+  'Walk straight up to another duck and take their bread without blinking',
+  'Charm humans into handing over snacks',
+  'Wait patiently for crumbs to drift your way like destiny intended',
+  'Harass innocent bystanders for food'
 ];
 
 // Expanded Avatar Asset Registry to support Zodiac-based skins

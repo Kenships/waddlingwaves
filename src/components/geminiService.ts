@@ -78,6 +78,12 @@ export const categorizeUser = async (answers: UserAnswers): Promise<DuckResult> 
     3. Include 2-3 clever duck puns (e.g., "quackers", "bill-iant", "feather-brained") in the reasoning.
     4. Ensure the skin ID perfectly matches the Zodiac logic above, however it should not have as much influence on the actual categorization into 1 of the 5 categories, the weighting for each question should be as follows from a scale of 1-5 (5 being the most weighted)
     5. Question 1: 0, Question 2: 1, Question 3: 1, Question 4: 3, Question 5: 3, Question 6: 2, Question 7: 2, Question 8: 2, Question 9: 3. 
+    6. Possible mapping for answers to question 6 and 7 (make sure to stick to the weighting previously stated): 
+      Tide Setters -> 6: Help out the weaker ducks. 7: Hunt for food yourself
+      Canadian geese -> 6: Exploring new parts of the pond and beyond. 7: Walk straight up to another duck and take their bread without blinking
+      Golden Beak Society -> 6: Play with humans that pass by. 7: Charm humans into handing over snacks
+      Wading Waddlers -> 6: Chill on the banks. 7: Wait patiently for crumbs to drift my way like destiny intended
+      Mischievous Mallards -> 6: Mess with other ducks. 7: Harass innocent bystanders for food.
   `;
 
   try {
