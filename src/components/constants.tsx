@@ -1,5 +1,24 @@
 
 import { DuckCategory } from './types';
+import WhiteDuck from '../assets/WhiteDuck.png'
+import RedDuck from '../assets/RedDuck.png'
+import GreenDuck from '../assets/GreenDuck.png'
+import BlueDuck from '../assets/BlueDuck.png'
+import BucketHat from '../assets/BucketHat.png'
+import StrawHat from '../assets/StrawHat.png'
+import Halo from '../assets/Halo.png'
+import Cap from '../assets/Cap.png'
+import Beanie from '../assets/Beanie.png'
+import Angelic from '../assets/Angelic.png'
+import Butterfly from '../assets/Butterfly.png'
+import Demon from '../assets/Demon.png'
+import Mechanical from '../assets/Mechanical.png'
+import Phoenix from '../assets/Phoenix.png'
+import Brush from '../assets/Brush.png'
+import Ball from '../assets/Ball.png'
+import Controller from '../assets/Controller.png'
+import Martini from '../assets/Martini.png'
+import Briefcase from '../assets/Briefcase.png'
 
 export const MBTI_OPTIONS = [
   'INTJ', 'INTP', 'ENTJ', 'ENTP',
@@ -34,26 +53,31 @@ export const FOOD_STRATEGIES = [
 // Updated Avatar Asset Registry
 export const AVATAR_ASSETS = {
   skins: [
-    { id: 'classic_yellow', name: 'Classic Yellow', imagePath: '/assets/duck/skin_yellow.png', description: 'The timeless pond look. Reliable and bright.' },
-    { id: 'mallard_green', name: 'Mallard Green', imagePath: '/assets/duck/skin_green.png', description: 'Regal and wild. Perfectly adapted for mischief.' },
-    { id: 'ghost_white', name: 'Ghost White', imagePath: '/assets/duck/skin_white.png', description: 'Pure, calm, and slightly introverted.' }
+    { id: 'duck_red', name: 'Fire', imagePath: RedDuck, description: 'The timeless pond look. Reliable and bright.' },
+    { id: 'duck_green', name: 'Earth', imagePath: GreenDuck, description: 'Regal and wild. Perfectly adapted for mischief.' },
+    { id: 'duck_white', name: 'Air', imagePath: WhiteDuck, description: 'Pure, calm, and slightly introverted.' },
+    { id: 'duck_blue', name: 'Water', imagePath: BlueDuck, description: 'Pure, calm, and slightly introverted.' }
   ],
   hats: [
-    { id: 'crown', name: 'Golden Crown', imagePath: '/assets/duck/hat_crown.png', description: 'For the duck that rules the roost.' },
-    { id: 'beanie', name: 'Slouchy Beanie', imagePath: '/assets/duck/hat_beanie.png', description: 'Cool, casual, and definitely doesn’t care about the currents.' },
-    { id: 'detective', name: 'Detective Cap', imagePath: '/assets/duck/hat_detective.png', description: 'Sharp-eyed and ready to solve pond mysteries.' },
-    { id: 'none', name: 'No Hat', imagePath: '', description: 'Keeping it natural.' }
+    { id: 'bucket_hat', name: 'Bucket Hat', imagePath: BucketHat, description: 'For the duck that rules the roost.' },
+    { id: 'straw_hat', name: 'Straw Hat', imagePath: StrawHat, description: 'Cool, casual, and definitely doesn’t care about the currents.' },
+    { id: 'halo', name: 'Halo', imagePath: Halo, description: 'Sharp-eyed and ready to solve pond mysteries.' },
+    { id: 'backwards_cap', name: 'Backwards Cap', imagePath: Cap, description: 'Keeping it natural.' },
+    { id: 'beanie', name: 'Beanie', imagePath: Beanie, description: 'Keeping it natural.' }
   ],
   wings: [
-    { id: 'angelic', name: 'Angelic Wings', imagePath: '/assets/duck/wings_angelic.png', description: 'Graceful feathers for a duck of pure intentions.' },
-    { id: 'bat_wings', name: 'Bat Wings', imagePath: '/assets/duck/wings_bat.png', description: 'For the Mischievous Mallard that thrives in the dark.' },
-    { id: 'cyber', name: 'Cybernetic Wings', imagePath: '/assets/duck/wings_cyber.png', description: 'High-tech mobility for the modern pond leader.' },
-    { id: 'none', name: 'Standard Wings', imagePath: '', description: 'Plain, aerodynamic, and functional.' }
+    { id: 'angel_wings', name: 'Angelic Wings', imagePath: Angelic, description: 'Graceful feathers for a duck of pure intentions.' },
+    { id: 'butterfly_wings', name: 'Butterfly Wings', imagePath: Butterfly, description: 'For the Mischievous Mallard that thrives in the dark.' },
+    { id: 'Demon_Wings', name: 'Demon Wings', imagePath: Demon, description: 'High-tech mobility for the modern pond leader.' },
+    { id: 'Mechanical_Wings', name: 'Mechanical Wings', imagePath: Mechanical, description: 'Plain, aerodynamic, and functional.' },
+    { id: 'Phoenix_Wings', name: 'Phoenix Wings', imagePath: Phoenix, description: 'Plain, aerodynamic, and functional.' }
   ],
   'handheld-items': [
-    { id: 'briefcase', name: 'Gold Briefcase', imagePath: '/assets/duck/item_case.png', description: 'Busy making big pond business moves.' },
-    { id: 'bread', name: 'Stolen Bread', imagePath: '/assets/duck/item_bread.png', description: 'A hard-earned (stolen) snack.' },
-    { id: 'wand', name: 'Magic Wand', imagePath: '/assets/duck/item_wand.png', description: 'Ready to cast unpredictable spells.' }
+    { id: 'Paintbrush', name: 'Painter', imagePath: Brush, description: 'Busy making big pond business moves.' },
+    { id: 'Basketball', name: 'Baller', imagePath: Ball, description: 'A hard-earned (stolen) snack.' },
+    { id: 'Gaming controller', name: 'Gamer', imagePath: Controller, description: 'Ready to cast unpredictable spells.' },
+    { id: 'Martini Glass', name: 'Drinker', imagePath: Martini, description: 'Ready to cast unpredictable spells.' },
+    { id: 'Briefcase', name: 'Worker', imagePath: Briefcase, description: 'Ready to cast unpredictable spells.' }
   ]
 };
 
