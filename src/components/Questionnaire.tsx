@@ -21,6 +21,29 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
     personalityTraits: ''
   });
 
+  const MEME_OPTIONS = [
+    {
+      id: 'justin bieber',
+      label: 'Bieber Fever',
+      image: '/memes/justin bieber.jpg'
+    },
+    {
+      id: 'skeleton',
+      label: 'RAHHHH',
+      image: '/memes/skeleton.png'
+    },
+    {
+      id: 'baby',
+      label: 'Yooooo',
+      image: '/memes/meme4.jpg'
+    },
+    {
+      id: 'me?',
+      label: 'me?',
+      image: '/memes/meme 3.jpg'
+    }
+  ];
+
   const updateAnswer = (field: keyof UserAnswers, value: string) => {
     setAnswers(prev => ({ ...prev, [field]: value }));
   };
@@ -97,8 +120,8 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
                 : 'border-transparent bg-white shadow-sm hover:border-sky-200'
             }`}
           >
-            <img src={meme.image} alt={meme.label} className="w-full h-32 object-cover rounded-lg mb-2" />
-            <span className="text-xs font-semibold text-gray-700">{meme.label}</span>
+            <img src={meme.image} alt={meme.label} className="w-full h-27 object-cover rounded-lg mb-2" />
+            <span className="text-s font-semibold text-gray-700">{meme.label}</span>
           </button>
         ))}
       </div>
@@ -108,7 +131,7 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
     <div key="step-3" className="space-y-6">
       <h2 className="text-2xl font-bold text-sky-800">Quack Instincts</h2>
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">If you were a duck, what activity would you enjoy most?</label>
+        <label className="block text-m font-medium text-gray-700 mb-2">If you were a duck, what activity would you enjoy most?</label>
         <div className="space-y-2">
           {DUCK_ACTIVITIES.map(act => (
             <button
@@ -125,7 +148,7 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
       </div>
       
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">How would you get food?</label>
+        <label className="block text-m font-medium text-gray-700 mb-2">How would you get food?</label>
         <div className="space-y-2">
           {FOOD_STRATEGIES.map(strat => (
             <button
@@ -146,7 +169,7 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
     <div key="step-4" className="space-y-6">
       <h2 className="text-2xl font-bold text-sky-800">The Final Flourish</h2>
       <div>
-        <label className="block text-sm font-medium text-gray-700 mb-2">Describe yourself in 2 personality traits</label>
+        <label className="block text-m font-medium text-gray-700 mb-2">Describe yourself in 2 personality traits</label>
         <textarea
           rows={3}
           placeholder="e.g. Fiercely loyal, somewhat chaotic..."

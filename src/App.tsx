@@ -37,7 +37,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen pb-20 bg-[#f0f9ff]">
+    <div className="min-h-screen pb-20 bg-[#1a9af0]">
       <header className="p-6 flex items-center justify-between">
         <div className="flex items-center space-x-2 cursor-pointer group" onClick={reset}>
           <div className="w-10 h-10 bg-amber-400 rounded-full flex items-center justify-center text-2xl shadow-sm group-hover:rotate-12 transition-transform">🦆</div>
@@ -53,9 +53,9 @@ const App: React.FC = () => {
             </div>
             <h2 className="text-5xl font-extrabold text-sky-900 leading-tight">
               What kind of duck <br/> 
-              <span className="text-sky-500">really are you?</span>
+              <span className="text-sky-900">really are you?</span>
             </h2>
-            <p className="text-lg text-gray-600 max-w-md mx-auto">
+            <p className="text-xl text-gray-600 max-w-md mx-auto">
               Dive into our AI-powered personality pond and find your exclusive society.
             </p>
             <div className="pt-4">
@@ -81,7 +81,7 @@ const App: React.FC = () => {
             </div>
             <div className="space-y-2">
               <h3 className="text-2xl font-bold text-sky-900">Consulting the Oracle...</h3>
-              <p className="text-sky-600">Checking the water temperature and feather quality.</p>
+              <p className="text-m text-sky-900">Checking the water temperature and feather quality.</p>
             </div>
           </div>
         )}
