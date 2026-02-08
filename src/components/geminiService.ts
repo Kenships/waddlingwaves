@@ -3,16 +3,11 @@ import { GoogleGenAI, Type } from "@google/genai";
 import { UserAnswers, DuckResult, DuckCategory } from "./types";
 import { CATEGORY_SUMMARIES, AVATAR_ASSETS } from "./constants";
 
-/**
- * World-class initialization logic that handles both Vite and standard environments
- * while resolving ESLint concerns regarding unused variables and proper TS suppression.
- */
 const getApiKey = () => {
   try {
     // @ts-expect-error - Vite's import.meta.env is not globally typed in all TS configs
     return import.meta.env?.VITE_API_KEY || (typeof process !== 'undefined' ? process.env.API_KEY : "");
   } catch {
-    // Catch block without variable to satisfy 'no-unused-vars'
     return typeof process !== 'undefined' ? process.env.API_KEY : "";
   }
 };
@@ -52,6 +47,7 @@ export const categorizeUser = async (answers: UserAnswers): Promise<DuckResult> 
 
     User Answers:
     - MBTI: ${answers.mbti || 'Not provided'}
+    - Birthday: ${answers.birthday} (Use this to determine their Zodiac/Star Sign)
     - First Song: ${answers.firstSong}
     - Meme: ${answers.memeResonance}
     - Movie: ${answers.favoriteMovie}
@@ -59,13 +55,24 @@ export const categorizeUser = async (answers: UserAnswers): Promise<DuckResult> 
     - Food Strategy: ${answers.foodStrategy}
     - Traits: ${answers.personalityTraits}
 
-    Additionally, select the best duck avatar items from these lists that represent their personality:
+    ZODIAC COLOR LOGIC FOR SKINS:
+    - If they are a Fire sign (Aries, Leo, Sagittarius), you MUST pick "volcano_red".
+    - If they are an Earth sign (Taurus, Virgo, Capricorn), you MUST pick "mallard_green".
+    - If they are an Air sign (Gemini, Libra, Aquarius), you MUST pick "ghost_white".
+    - If they are a Water sign (Cancer, Scorpio, Pisces), you MUST pick "deep_blue".
+    - Fallback: "classic_yellow".
+
+    AVATAR ITEM REGISTRY:
     - Skins: [${availableSkins}]
     - Hats: [${availableHats}]
     - Wings: [${availableWings}]
     - Handheld Items: [${availableHandheldItems}]
 
-    Return a JSON response with the category, reasoning, 3 traits, and the chosen avatar item IDs.
+    RESPONSE REQUIREMENTS:
+    1. Return a JSON response with the category, reasoning, 3 traits, and the chosen avatar item IDs. 
+    2. Write the "reasoning" as if addressing the user directly (use "you", not "the user").
+    3. Include 2-3 clever duck puns (e.g., "quackers", "bill-iant", "feather-brained") in the reasoning.
+    4. Ensure the skin ID perfectly matches the Zodiac logic above.
   `;
 
   try {

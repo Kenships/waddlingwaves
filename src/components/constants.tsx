@@ -50,13 +50,13 @@ export const FOOD_STRATEGIES = [
   'Dig out the trash for food'
 ];
 
-// Updated Avatar Asset Registry
+// Expanded Avatar Asset Registry to support Zodiac-based skins
 export const AVATAR_ASSETS = {
   skins: [
-    { id: 'duck_red', name: 'Fire', imagePath: RedDuck, description: 'The timeless pond look. Reliable and bright.' },
-    { id: 'duck_green', name: 'Earth', imagePath: GreenDuck, description: 'Regal and wild. Perfectly adapted for mischief.' },
-    { id: 'duck_white', name: 'Air', imagePath: WhiteDuck, description: 'Pure, calm, and slightly introverted.' },
-    { id: 'duck_blue', name: 'Water', imagePath: BlueDuck, description: 'Pure, calm, and slightly introverted.' }
+    { id: 'duck_red', name: 'Fire Red', imagePath: RedDuck, description: 'The timeless pond look. Reliable and bright.' },
+    { id: 'duck_green', name: 'Earth Green', imagePath: GreenDuck, description: 'Regal and wild. Perfectly adapted for mischief.' },
+    { id: 'duck_white', name: 'Cloud White', imagePath: WhiteDuck, description: 'Pure, calm, and slightly introverted.' },
+    { id: 'duck_blue', name: 'Water Blue', imagePath: BlueDuck, description: 'Pure, calm, and slightly introverted.' }
   ],
   hats: [
     { id: 'bucket_hat', name: 'Bucket Hat', imagePath: BucketHat, description: 'For the duck that rules the roost.' },
