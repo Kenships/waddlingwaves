@@ -190,7 +190,7 @@ const App: React.FC = () => {
                 <div className="relative">
                   <div className="w-40 h-40 border-8 border-gray-200 border-t-sky-500 sketch-box-thick rounded-full animate-spin"></div>
                   <div className="absolute inset-0 flex items-center justify-center">
-                    <img src={DuckIcon} width="auto" height="auto"></img>
+                    <img src={DuckIcon} width="50%" height="50%"></img>
                   </div>
                 </div>
                 <div className="space-y-4">
