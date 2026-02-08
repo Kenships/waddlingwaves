@@ -110,7 +110,7 @@ const App: React.FC = () => {
             left: "0",
             zIndex: 1000,
           }}>
-            <img src={CatTail} width={"400"}></img>
+            <img src={CatTail} width={"400vw"}></img>
           </div>
           <div style={{
             position: "fixed",
@@ -118,7 +118,7 @@ const App: React.FC = () => {
             right: "0",
             zIndex: 1000,
           }}>
-            <img src={Sun} width={"300"}></img>
+            <img src={Sun} width={"300vw"}></img>
           </div>
         </header>
 
