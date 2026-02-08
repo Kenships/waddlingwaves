@@ -35,10 +35,8 @@ const DuckAvatar: React.FC<Props> = ({ config }) => {
               key={layer.cat}
               src={asset.imagePath}
               alt={asset.name}
-              className="absolute inset-0 w-full h-full object-contain transition-transform hover:scale-105"
+              className="absolute inset-0 w-full h-full object-contain transition-transform"
               style={{ zIndex: layer.z }}
-              onMouseEnter={() => setHoveredDescription(asset.description)}
-              onMouseLeave={() => setHoveredDescription(null)}
             />
           );
         })}

@@ -104,6 +104,7 @@ export const categorizeUser = async (answers: UserAnswers): Promise<DuckResult> 
     });
 
     const responseText = response.text;
+    console.log("Gemini Response:", responseText);
     if (!responseText) {
       throw new Error("The duck oracle returned an empty response.");
     }
