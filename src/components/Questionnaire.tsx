@@ -136,7 +136,7 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
         </label>
         <input
             type="text"
-            placeholder="e.g. Bohemian Rhapsody"
+            placeholder="Quack to your heart's content!"
             className="w-full shadow-sm text-xl"
             value={answers.firstSong}
             onChange={(e) => updateAnswer('firstSong', e.target.value)}
@@ -149,7 +149,7 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
         </label>
         <input
             type="text"
-            placeholder="e.g. The Grand Budapest Hotel"
+            placeholder="Even mallards can enjoy a movie or two!"
             className="w-full shadow-sm text-xl"
             value={answers.favoriteMovie}
             onChange={(e) => updateAnswer('favoriteMovie', e.target.value)}
