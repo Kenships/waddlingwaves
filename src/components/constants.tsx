@@ -53,10 +53,10 @@ export const FOOD_STRATEGIES = [
 // Expanded Avatar Asset Registry to support Zodiac-based skins
 export const AVATAR_ASSETS = {
   skins: [
-    { id: 'duck_red', name: 'Fire Red', imagePath: RedDuck, description: 'The timeless pond look. Reliable and bright.' },
-    { id: 'duck_green', name: 'Earth Green', imagePath: GreenDuck, description: 'Regal and wild. Perfectly adapted for mischief.' },
-    { id: 'duck_white', name: 'Cloud White', imagePath: WhiteDuck, description: 'Pure, calm, and slightly introverted.' },
-    { id: 'duck_blue', name: 'Water Blue', imagePath: BlueDuck, description: 'Pure, calm, and slightly introverted.' }
+    { id: 'volcano_red', name: 'Fire Red', imagePath: RedDuck, description: 'The timeless pond look. Reliable and bright.' },
+    { id: 'mallard_green', name: 'Earth Green', imagePath: GreenDuck, description: 'Regal and wild. Perfectly adapted for mischief.' },
+    { id: 'ghost_white', name: 'Cloud White', imagePath: WhiteDuck, description: 'Pure, calm, and slightly introverted.' },
+    { id: 'deep_blue', name: 'Water Blue', imagePath: BlueDuck, description: 'Pure, calm, and slightly introverted.' }
   ],
   hats: [
     { id: 'bucket_hat', name: 'Bucket Hat', imagePath: BucketHat, description: 'For the duck that rules the roost.' },
@@ -83,7 +83,7 @@ export const AVATAR_ASSETS = {
 
 export const CATEGORY_SUMMARIES: Record<DuckCategory, string> = {
   [DuckCategory.TIDE_SETTERS]: "Natural leaders who tend to take charge and would prefer to be in charge of the pond. Tide setters are driven and motivated to achieve their goals, even if it ends up ruffling a few feathers.",
-  [DuckCategory.CANADIAN_GEESE]: "Straight to the point ducks who don’t shy away from confrontation and will never be afraid to speak their mind. Canadian geese will point out even the harshest of truths to their fellow ducks when nobody else would.",
+  [DuckCategory.CANADA_GOOSE]: "Straight to the point ducks who don’t shy away from confrontation and will never be afraid to speak their mind. Canadian geese will point out even the harshest of truths to their fellow ducks when nobody else would.",
   [DuckCategory.GOLDEN_BEAK]: "The stars of the show, ducks of the Golden Beak Society tend to be the life of the pond. They thrive on interaction and energy, often becoming the glue that holds the flock together and will never miss a good duck get-together.",
   [DuckCategory.WADING_WADDLERS]: "Self-reserved ducks who like to stay out of trouble and mind their own business. Wading Waddlers prefer the edges of the pond, and hold their closest duckpals very close to their hearts.",
   [DuckCategory.MISCHIEVOUS_MALLARDS]: "The playful ducks that tend to act before they think (even if it ends a little chaotic). Mischievous mallards are never afraid to stir the pond just to have a good laugh, love them or hate them, they’re always good company."
@@ -91,7 +91,7 @@ export const CATEGORY_SUMMARIES: Record<DuckCategory, string> = {
 
 export const CATEGORY_METADATA: Record<string, { color: string; icon: string }> = {
   [DuckCategory.TIDE_SETTERS]: { color: 'bg-blue-600', icon: '🌊' },
-  [DuckCategory.CANADIAN_GEESE]: { color: 'bg-red-500', icon: '🦢' },
+  [DuckCategory.CANADA_GOOSE]: { color: 'bg-red-500', icon: '🦢' },
   [DuckCategory.GOLDEN_BEAK]: { color: 'bg-yellow-400', icon: '👑' },
   [DuckCategory.WADING_WADDLERS]: { color: 'bg-emerald-500', icon: '🌿' },
   [DuckCategory.MISCHIEVOUS_MALLARDS]: { color: 'bg-purple-500', icon: '🎭' }
