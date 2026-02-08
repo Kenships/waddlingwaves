@@ -59,8 +59,12 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
       
       <div>
         <label className="block text-sm font-medium text-gray-700 mb-2">MBTI Type (Optional)</label>
-        <select 
-          className="w-full p-3 border border-sky-200 rounded-xl focus:ring-2 focus:ring-sky-500 outline-none bg-white"
+        <select
+            className={`w-full p-3 border rounded-xl outline-none focus:ring-2 
+                ${answers.mbti
+                ? "bg-yellow-200 border-yellow-400 focus:ring-yellow-400"
+                : "bg-white border-sky-200 focus:ring-sky-500"
+            }`}
           value={answers.mbti}
           onChange={(e) => updateAnswer('mbti', e.target.value)}
         >
@@ -73,7 +77,11 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
         <label className="block text-sm font-medium text-gray-700 mb-2">Your Birthday (Zodiac Insight)</label>
         <input 
           type="date"
-          className="w-full p-3 border border-sky-200 rounded-xl focus:ring-2 focus:ring-sky-500 outline-none bg-white"
+          className={`w-full p-3 border rounded-xl outline-none focus:ring-2 transition-colors duration-300
+      ${answers.birthday
+              ? "bg-yellow-200 border-yellow-400 focus:ring-yellow-400"
+              : "bg-white border-sky-200 focus:ring-sky-500"
+          }`}
           value={answers.birthday}
           onChange={(e) => updateAnswer('birthday', e.target.value)}
         />
@@ -88,7 +96,11 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
         <input 
           type="text"
           placeholder="e.g. Bohemian Rhapsody"
-          className="w-full p-3 border border-sky-200 rounded-xl focus:ring-2 focus:ring-sky-500 outline-none"
+          className={`w-full p-3 border rounded-xl outline-none focus:ring-2 transition-colors duration-300
+      ${answers.firstSong
+              ? "bg-yellow-200 border-yellow-400 focus:ring-yellow-400"
+              : "bg-white border-sky-200 focus:ring-sky-500"
+          }`}
           value={answers.firstSong}
           onChange={(e) => updateAnswer('firstSong', e.target.value)}
         />
@@ -99,7 +111,11 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
         <input 
           type="text"
           placeholder="e.g. The Grand Budapest Hotel"
-          className="w-full p-3 border border-sky-200 rounded-xl focus:ring-2 focus:ring-sky-500 outline-none"
+          className={`w-full p-3 border rounded-xl outline-none focus:ring-2 transition-colors duration-300
+      ${answers.favoriteMovie
+              ? "bg-yellow-200 border-yellow-400 focus:ring-yellow-400"
+              : "bg-white border-sky-200 focus:ring-sky-500"
+          }`}
           value={answers.favoriteMovie}
           onChange={(e) => updateAnswer('favoriteMovie', e.target.value)}
         />
@@ -114,14 +130,22 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
           <button
             key={meme.id}
             onClick={() => updateAnswer('memeResonance', meme.id)}
-            className={`p-4 rounded-xl border-2 transition-all ${
-              answers.memeResonance === meme.id 
-                ? 'border-sky-500 bg-sky-50' 
-                : 'border-transparent bg-white shadow-sm hover:border-sky-200'
+            className={`p-4 rounded-xl border-2 transition-all duration-300 ${
+                answers.memeResonance === meme.id
+                    ? 'border-yellow-400 bg-yellow-100 shadow-md scale-[1.02]'
+                    : 'border-transparent bg-white shadow-sm hover:border-sky-200 hover:shadow-md'
             }`}
           >
             <img src={meme.image} alt={meme.label} className="w-full h-27 object-cover rounded-lg mb-2" />
-            <span className="text-s font-semibold text-gray-700">{meme.label}</span>
+            <span
+                className={`text-s font-semibold transition-colors duration-300 ${
+                    answers.memeResonance === meme.id
+                        ? "text-yellow-800"
+                        : "text-gray-700"
+                }`}
+            >
+  {meme.label}
+</span>
           </button>
         ))}
       </div>
@@ -137,8 +161,10 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
             <button
               key={act}
               onClick={() => updateAnswer('duckActivity', act)}
-              className={`w-full text-left p-3 rounded-lg border transition-all ${
-                answers.duckActivity === act ? 'bg-sky-500 text-white' : 'bg-white hover:bg-sky-50'
+              className={`w-full text-left p-3 rounded-lg border transition-all duration-300 ${
+                  answers.duckActivity === act
+                      ? 'bg-yellow-200 border-yellow-400 text-yellow-800 shadow-md'
+                      : 'bg-white hover:bg-yellow-50 border-gray-200'
               }`}
             >
               {act}
@@ -146,6 +172,8 @@ const Questionnaire: React.FC<Props> = ({ onSubmit, isSubmitting }) => {
           ))}
         </div>
       </div>
+
+
       
       <div>
         <label className="block text-m font-medium text-gray-700 mb-2">How would you get food?</label>
