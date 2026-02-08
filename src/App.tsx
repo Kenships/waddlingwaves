@@ -4,6 +4,11 @@ import ResultView from './components/ResultView.tsx';
 import WaddleView from './components/WaddleView.tsx';
 import type {UserAnswers, DuckResult, WaddleMember} from './components/types.ts';
 import { categorizeUser } from './components/geminiService.ts';
+import DuckQuestion from './assets/DuckQuestion.png'
+import DuckIcon from './assets/DuckPlug.png'
+import CatTail from './assets/CatTails.png'
+import Cloud from './assets/Cloud.png'
+import Sun from './assets/Sun.png'
 
 const STORAGE_KEY = 'duck_profiler_waddle';
 
@@ -86,7 +91,9 @@ const App: React.FC = () => {
       <div className="min-h-screen">
         <header className="p-8 flex items-center justify-between">
           <div className="flex items-center space-x-4 cursor-pointer group" onClick={reset}>
-            <div className="w-14 h-14 bg-amber-400 sketch-box-thick flex items-center justify-center text-4xl shadow-md group-hover:rotate-12 transition-transform">🦆</div>
+            <div className="w-14 h-14 bg-amber-400 sketch-box-thick flex items-center justify-center text-4xl shadow-md group-hover:rotate-12 transition-transform">
+              <img src={DuckIcon}></img>
+            </div>"
             <h1 className="text-4xl font-black text-gray-900 italic tracking-tighter uppercase">Waddling<span className="text-sky-500 underline decoration-wavy">Waves</span></h1>
           </div>
           {waddleMembers.length > 0 && view === 'intro' && (
@@ -97,14 +104,56 @@ const App: React.FC = () => {
                 Visit The Pond ({waddleMembers.length})
               </button>
           )}
+          <div style={{
+            position: "fixed",
+            bottom: "0",
+            left: "0",
+            zIndex: 1000,
+          }}>
+            <img src={CatTail} width={"400"}></img>
+          </div>
+          <div style={{
+            position: "fixed",
+            top: "0",
+            right: "0",
+            zIndex: 1000,
+          }}>
+            <img src={Sun} width={"300"}></img>
+          </div>
         </header>
 
         <main className="container mx-auto px-6 py-12">
           {view === 'intro' && (
-              <div className="max-w-3xl mx-auto text-center space-y-12 animate-fade-in">
-                <div className="inline-block p-8 bg-sky-100 sketch-box-thick rotate-2 shadow-xl">
-                  <span className="text-8xl">🦢</span>
+              <div className="max-w-3xl mx-auto flex flex-col items-center text-center animate-fade-in">
+                <div
+                    style={{
+                      position: "relative",
+                      display: "grid",
+                      justifyItems: "center",
+                      width: "400px",   // match your image size
+                      height: "400px",
+                    }}
+                >
+                  <img
+                      src={Cloud}
+                      alt="base"
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                      }}
+                  />
+
+                  <img
+                      src={DuckQuestion}
+                      alt="overlay"
+                      style={{
+                        position: "absolute",
+                        width: "50%",
+                        height: "50%",
+                      }}
+                  />
                 </div>
+
                 <h2 className="text-7xl font-black text-gray-900 leading-none uppercase tracking-tighter italic">
                   What kind of duck <br/>
                   <span className="text-sky-500 underline decoration-dashed decoration-4 underline-offset-8">actually are you?</span>
@@ -139,7 +188,9 @@ const App: React.FC = () => {
               <div className="flex flex-col items-center justify-center space-y-12 py-32 text-center">
                 <div className="relative">
                   <div className="w-40 h-40 border-8 border-gray-200 border-t-sky-500 sketch-box-thick rounded-full animate-spin"></div>
-                  <div className="absolute inset-0 flex items-center justify-center text-6xl">🦆</div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <img src={DuckIcon} width="auto" height="auto"></img>
+                  </div>
                 </div>
                 <div className="space-y-4">
                   <h3 className="text-4xl font-black text-gray-900 italic underline decoration-sky-300 underline-offset-8">Quack-culating...</h3>
